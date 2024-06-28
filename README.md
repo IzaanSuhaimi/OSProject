@@ -88,7 +88,9 @@ shm                65536        8     65528   1% /dev/shm
 /dev/root       30298176 24350708   5931084  81% /vscode
 /dev/sda1       46127956      100  43752280   1% /tmp
 /dev/loop3      32847680 10380984  20772600  34% /workspaces__.
-4. Run the command **du** . ***(1 mark)*** __@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ du
+4. Run the command **du** . ***(1 mark)*** __
+```
+@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ du
 1972    ./images
 8       ./.git/logs/refs/heads
 12      ./.git/logs/refs/remotes/origin
@@ -188,6 +190,7 @@ shm                65536        8     65528   1% /dev/shm
 4       ./.git/branches
 2768    ./.git
 4764    .__.
+```
 5. Run the command **ls** . ***(1 mark)*** __@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ ls
 README.md  images__.
 6. Run the command **ls -asl** . ***(1 mark)*** __@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ ls -asl
