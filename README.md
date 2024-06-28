@@ -479,8 +479,8 @@ admiring_lovelace
 ```
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark) It is not consistent because the files can be removed when the container is removed*** 
+2. Can we run two, or three instances of debian linux? . ***(1 mark) Yes, we can run multiple instances of Debian Linux on the same physical or virtual machine***
 
 ## Running your own container with persistent storage
 
