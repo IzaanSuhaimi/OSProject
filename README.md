@@ -376,6 +376,7 @@ fea1432adf09: Pull complete
 Digest: sha256:a92ed51e0996d8e9de041ca05ce623d2c491444df6a535a566dabd5cb8336946
 Status: Downloaded newer image for debian:latest
 docker.io/library/debian:latest
+
 @Armanazri ➜ /workspaces/OSProject (main) $ docker run --detach -it debian
 984e12f953ef232176ab7de2679567dd677a131dcf334787b588ac79683e964b
 ```
@@ -477,9 +478,11 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 ```bash
 @Armanazri ➜ /workspaces/OSProject (main) $ docker stop admiring_lovelace
 admiring_lovelace
+
 @Armanazri ➜ /workspaces/OSProject (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                       PORTS     NAMES
 136e67b8d7b5   debian    "bash"    47 minutes ago   Exited (137) 8 seconds ago             admiring_lovelace
+
 @Armanazri ➜ /workspaces/OSProject (main) $ docker restart admiring_lovelace
 admiring_lovelace
 ```
@@ -498,9 +501,11 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 ```bash
 @Armanazri ➜ /workspaces/OSProject (main) $ docker stop admiring_lovelace
 admiring_lovelace
+
 @Armanazri ➜ /workspaces/OSProject (main) $ docker ps -a
 CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                       PORTS     NAMES
 136e67b8d7b5   debian    "bash"    48 minutes ago   Exited (137) 8 seconds ago             admiring_lovelace
+
 @Armanazri ➜ /workspaces/OSProject (main) $ docker rm admiring_lovelace
 admiring_lovelace
 ```
