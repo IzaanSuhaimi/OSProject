@@ -341,6 +341,18 @@ Linux codespaces-b10985 6.5.0-1022-azure #23~22.04.1-Ubuntu SMP Thu May  9 17:59
 docker pull debian
 docker run --detach -it debian
 ```
+```bash
+@Armanazri ➜ /workspaces/OSProject (main) $ docker pull debian
+Using default tag: latest
+latest: Pulling from library/debian
+fea1432adf09: Pull complete 
+Digest: sha256:a92ed51e0996d8e9de041ca05ce623d2c491444df6a535a566dabd5cb8336946
+Status: Downloaded newer image for debian:latest
+docker.io/library/debian:latest
+@Armanazri ➜ /workspaces/OSProject (main) $ docker run --detach -it debian
+984e12f953ef232176ab7de2679567dd677a131dcf334787b588ac79683e964b
+```
+
 2. This will run the debian container. To check if the debian container is running, type
 ```bash
 @joeynor ➜ /workspaces/OSProject (main) $ docker ps -a
