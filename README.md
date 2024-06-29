@@ -612,7 +612,7 @@ drwxrwxrwx+ 3 root      root      4096 Jun 29 10:13 .local
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Yes__.***
+__Yes__.
 
 ```bash
 @Irfanadib ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace helloworld.txt
