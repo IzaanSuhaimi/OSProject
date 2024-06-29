@@ -1208,6 +1208,8 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 ```bash
 @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ curl http://localhost:3000/random
 curl: (7) Failed to connect to localhost port 3000: Connection refused
+
+it is error because the node.js container cannot reach the MySQL container by its hostname mysql container until the networks are bridged.
 ```
 2. Show the instruction needed to make this work. ***(1 mark)*** 
 ```bash
