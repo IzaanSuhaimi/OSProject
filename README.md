@@ -535,12 +535,15 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 @Irfanadib ➜ /workspaces/OSProject/myroot (main) $ pwd
 /workspaces/OSProject/myroot
 @Irfanadib ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
-Unable to find image 'debian:latest' locally
-latest: Pulling from library/debian
-fea1432adf09: Pull complete 
-Digest: sha256:a92ed51e0996d8e9de041ca05ce623d2c491444df6a535a566dabd5cb8336946
-Status: Downloaded newer image for debian:latest
-bcaa8da04ea3f32a085f785adbdfd71d623ca1fcdf300d7b8c4abd42f4d85af0
+cc179da0e1d2e4c8d24b3ae3d965bca274687f84d061a19449ac15c28aeebe26
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+cc179da0e1d2   debian    "bash"    24 seconds ago   Up 22 seconds             pensive_northcutt
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ docker exec -i -t pensive_northcutt /bin/bash
+root@cc179da0e1d2:/# cd /root
+root@cc179da0e1d2:~# nano helloworld.txt
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ ls
+helloworld.txt
 ```
 
 ***Questions:***
