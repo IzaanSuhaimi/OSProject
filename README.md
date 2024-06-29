@@ -529,6 +529,20 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 @joeynor ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
 ```
 
+```bash
+@Irfanadib ➜ /workspaces/OSProject (main) $ mkdir myroot
+@Irfanadib ➜ /workspaces/OSProject (main) $ cd myroot/
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ pwd
+/workspaces/OSProject/myroot
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ docker run --detach -it -v /workspaces/OSProject/myroot:/root debian
+Unable to find image 'debian:latest' locally
+latest: Pulling from library/debian
+fea1432adf09: Pull complete 
+Digest: sha256:a92ed51e0996d8e9de041ca05ce623d2c491444df6a535a566dabd5cb8336946
+Status: Downloaded newer image for debian:latest
+bcaa8da04ea3f32a085f785adbdfd71d623ca1fcdf300d7b8c4abd42f4d85af0
+```
+
 ***Questions:***
 
 1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
