@@ -541,7 +541,55 @@ CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NA
 cc179da0e1d2   debian    "bash"    24 seconds ago   Up 22 seconds             pensive_northcutt
 @Irfanadib ➜ /workspaces/OSProject/myroot (main) $ docker exec -i -t pensive_northcutt /bin/bash
 root@cc179da0e1d2:/# cd /root
+root@cc179da0e1d2:~# apt-get update
+Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8788 kB]
+Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [13.8 kB]
+Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [164 kB]
+Fetched 9220 kB in 1s (7892 kB/s)
+Reading package lists... Done
+root@cc179da0e1d2:~# apt-get install nano
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libgpm2 libncursesw6
+Suggested packages:
+  gpm hunspell
+The following NEW packages will be installed:
+  libgpm2 libncursesw6 nano
+0 upgraded, 3 newly installed, 0 to remove and 6 not upgraded.
+Need to get 838 kB of archives.
+After this operation, 3339 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Yl
+Get:1 http://deb.debian.org/debian bookworm/main amd64 libncursesw6 amd64 6.4-4 [134 kB]
+Get:2 http://deb.debian.org/debian bookworm/main amd64 nano amd64 7.2-1+deb12u1 [690 kB]
+Get:3 http://deb.debian.org/debian bookworm/main amd64 libgpm2 amd64 1.20.7-10+b1 [14.2 kB]
+Fetched 838 kB in 0s (2436 kB/s)    
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libncursesw6:amd64.
+(Reading database ... 6090 files and directories currently installed.)
+Preparing to unpack .../libncursesw6_6.4-4_amd64.deb ...
+Unpacking libncursesw6:amd64 (6.4-4) ...
+Selecting previously unselected package nano.
+Preparing to unpack .../nano_7.2-1+deb12u1_amd64.deb ...
+Unpacking nano (7.2-1+deb12u1) ...
+Selecting previously unselected package libgpm2:amd64.
+Preparing to unpack .../libgpm2_1.20.7-10+b1_amd64.deb ...
+Unpacking libgpm2:amd64 (1.20.7-10+b1) ...
+Setting up libgpm2:amd64 (1.20.7-10+b1) ...
+Setting up libncursesw6:amd64 (6.4-4) ...
+Setting up nano (7.2-1+deb12u1) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+Processing triggers for libc-bin (2.36-9+deb12u7) ...
 root@cc179da0e1d2:~# nano helloworld.txt
+root@cc179da0e1d2:~# ls
+helloworld.txt
+root@cc179da0e1d2:~# exit
+exit
 @Irfanadib ➜ /workspaces/OSProject/myroot (main) $ ls
 helloworld.txt
 ```
