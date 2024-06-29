@@ -548,14 +548,34 @@ helloworld.txt
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __root root__.
+
+```bash
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ ls -la
+total 16
+drwxrwxrwx+ 3 codespace codespace 4096 Jun 29 13:19 .
+drwxrwxrwx+ 5 codespace root      4096 Jun 29 02:31 ..
+drwxrwxrwx+ 3 root      root      4096 Jun 29 10:13 .local
+-rw-rw-rw-  1 root      root        13 Jun 29 13:14 helloworld.txt
+```
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+*** __Yes__.***
+
+```bash
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace helloworld.txt
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace .local
+@Irfanadib ➜ /workspaces/OSProject/myroot (main) $ ls -la
+total 16
+drwxrwxrwx+ 3 codespace codespace 4096 Jun 29 13:19 .
+drwxrwxrwx+ 5 codespace root      4096 Jun 29 02:31 ..
+drwxrwxrwx+ 3 codespace codespace 4096 Jun 29 10:13 .local
+-rw-rw-rw-  1 codespace codespace   13 Jun 29 13:14 helloworld.txt
+```
 
 ## You are on your own, create your own static webpage
 
