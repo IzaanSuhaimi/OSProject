@@ -649,10 +649,19 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
-
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** 
+```bash
+@IzaanSuhaimi ➜ /workspaces/OSProject/webpage (main) $ ls -ld /workspaces/OSProject/webpage
+drwxrwxrwx+ 2 codespace codespace 4096 Jun 29 07:51 /workspaces/OSProject/webpage
+```
+2. What port is the apache web server running. ***(1 mark)*** 
+```bash
+80
+```
+3. What port is open for http protocol on the host machine? ***(1 mark)*** 
+```bash
+8080
+```
 ## Create SUB Networks
 
 1. In docker, you can create your own private networks where you can run multiple services, in this part, we will create two networks, one called bluenet and the other is rednet
@@ -1266,8 +1275,17 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** 
+```bash
+@IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ curl http://localhost:3000/random
+curl: (7) Failed to connect to localhost port 3000: Connection refused
+
+it is error because the node.js container cannot reach the MySQL container by its hostname mysql container until the networks are bridged.
+```
+2. Show the instruction needed to make this work. ***(1 mark)*** 
+```bash
+docker network connect mysqlnet nodejs-container
+```
 
 
 
