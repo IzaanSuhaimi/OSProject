@@ -1169,7 +1169,7 @@ PING c2 (172.21.0.3): 56 data bytes
 64 bytes from 172.21.0.3: seq=50 ttl=64 time=0.060 ms
 ```
 
-2. What is different from the previous ping in the section above? ***(1 mark)*** __The 2 networks are connected properly, making c1 unable to ping c2__.
+2. What is different from the previous ping in the section above? ***(1 mark)*** __The 2 networks are now connected properly, making c1 unable to ping c2__.
 
 ## Intermediate Level (10 marks bonus)
 
