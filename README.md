@@ -485,6 +485,13 @@ CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      
 
 @Armanazri ➜ /workspaces/OSProject (main) $ docker restart admiring_lovelace
 admiring_lovelace
+
+@Armanazri ➜ /workspaces/OSProject (main) $ docker exec -i -t admiring_lovelace /bin/bash
+root@ec38e09f71b5:/# cd root
+root@ec38e09f71b5:~# ls
+helloworld.txt
+root@ec38e09f71b5:~# cat helloworld.txt
+HELLO WORLD !!
 ```
 
 7. Stop the container and delete the container. What happened to your helloworld.txt?
@@ -511,8 +518,17 @@ admiring_lovelace
 ```
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark) It is not consistent because the files can be removed when the container is removed*** 
-2. Can we run two, or three instances of debian linux? . ***(1 mark) Yes, we can run multiple instances of Debian Linux on the same physical or virtual machine***
+1. Are files in the container persistent. Why not?. ***(1 mark) 
+It is not consistent because the files is removed when the container is removed*** 
+2. Can we run two, or three instances of debian linux? . ***(1 mark) 
+Yes, we can run multiple instances of Debian Linux on the same physical or virtual machine***
+
+```bash
+@Armanazri ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+6423e4a32316   debian    "bash"    7 seconds ago   Up 5 seconds             happy_torvalds
+ec38e09f71b5   debian    "bash"    8 minutes ago   Up 4 minutes             eager_perlman
+```
 
 ## Running your own container with persistent storage
 
