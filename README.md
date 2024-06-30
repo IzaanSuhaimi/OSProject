@@ -485,6 +485,13 @@ CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS                      
 
 @Armanazri ➜ /workspaces/OSProject (main) $ docker restart admiring_lovelace
 admiring_lovelace
+
+@Armanazri ➜ /workspaces/OSProject (main) $ docker exec -i -t admiring_lovelace /bin/bash
+root@ec38e09f71b5:/# cd root
+root@ec38e09f71b5:~# ls
+helloworld.txt
+root@ec38e09f71b5:~# cat helloworld.txt
+HELLO WORLD !!
 ```
 
 7. Stop the container and delete the container. What happened to your helloworld.txt?
@@ -511,8 +518,17 @@ admiring_lovelace
 ```
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark) It is not consistent because the files can be removed when the container is removed*** 
-2. Can we run two, or three instances of debian linux? . ***(1 mark) Yes, we can run multiple instances of Debian Linux on the same physical or virtual machine***
+1. Are files in the container persistent. Why not?. ***(1 mark) 
+It is not consistent because the files is removed when the container is removed*** 
+2. Can we run two, or three instances of debian linux? . ***(1 mark) 
+Yes, we can run multiple instances of Debian Linux on the same physical or virtual machine***
+
+```bash
+@Armanazri ➜ /workspaces/OSProject (main) $ docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+6423e4a32316   debian    "bash"    7 seconds ago   Up 5 seconds             happy_torvalds
+ec38e09f71b5   debian    "bash"    8 minutes ago   Up 4 minutes             eager_perlman
+```
 
 ## Running your own container with persistent storage
 
@@ -666,10 +682,10 @@ d50c26ba34c1   host      host      local
 bc2b764e3ae2   rednet    bridge    local
 ```
 3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)***
-***
-Bluenet Gateway : "172.18.0.1"
-Rednet Gateway: "172.19.0.1"
-***
+```bash
+bluenet: "Gateway": "172.18.0.1",
+rednet: "Gateway": "172.19.0.1",
+```
 ```bash
 @Armanazri ➜ /workspaces/OSProject (main) $ docker inspect c1
 [
@@ -1070,7 +1086,11 @@ Rednet Gateway: "172.19.0.1"
     }
 ]
 ```
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
+4. What is the network address for the running container c1 and c2? ***(1 mark)*** 
+```bash
+c1 = "IPAddress": "172.18.0.2"
+c2 = "IPAddress": "172.19.0.2"
+```
 5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark) Not able to ping.***
 ```bash
 @Armanazri ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
@@ -1162,12 +1182,39 @@ This guide will help you set up a simple Node.js website that retrieves a random
 Create a Docker network to for the two containers.
 For mysql, call it **mysqlnet** for nodejs call it **nodejsnet** .
 
+```bash
+@Armanazri ➜ /workspaces/OSProject (main) $ docker network create mysqlnet
+5efad54fbe7fbcc345455fd9147537fd7955d088a321c5f2a0fc564f14b61622
+
+@Armanazri ➜ /workspaces/OSProject (main) $ docker network create nodejsnet
+03f11a6e0f798ad0613862a57bf68053e5f519884833f6437a373cbd67e4f8db
+```
+
 #### Step 2: Set Up the MySQL Container
 
 Run a MySQL container on the created network.
 
 ```sh
 docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+```
+
+```bash
+@Armanazri ➜ /workspaces/OSProject (main) $ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=rootpassword -e MYSQL_DATABASE=mydatabase -e MYSQL_USER=myuser -e MYSQL_PASSWORD=mypassword -d mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+7af76bb36546: Pull complete 
+24d40f69285f: Pull complete 
+94e5412f594e: Pull complete 
+e00a64de64e9: Pull complete 
+e3dd3d47ce6c: Pull complete 
+18af3efb629d: Pull complete 
+ba3db9dfd86e: Pull complete 
+787130cbc394: Pull complete 
+d458a2361496: Pull complete 
+d48f1878172c: Pull complete 
+Digest: sha256:dab7049abafe3a0e12cbe5e49050cf149881c0cd9665c289e5808b9dad39c9e0
+Status: Downloaded newer image for mysql:latest
+c73e677f3862fda8f3a68d9845c9d9e12f9e0ffa504863dbc94af388974fe75b
 ```
 
 #### Step 3: Set Up the Node.js Container
@@ -1180,7 +1227,40 @@ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=root
     npm init -y
     npm install express mysql
     ```
+```bash
+@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
+mkdir: cannot create directory ‘nodejs-app’: File exists
+@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ cd nodejs-app
+@IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ npm init -y
+Wrote to /workspaces/OSProject/nodejs-app/package.json:
 
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
+@IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ npm install express mysql
+
+up to date, audited 77 packages in 1s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+```
 2. **Create a file named `index.js` with the following content:**
 
     ```js
@@ -1226,6 +1306,17 @@ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=root
     });
     ```
 
+    ```bash
+    @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano index.js
+
+
+    Use "fg" to return to nano.
+
+    [1]+  Stopped                 nano index.js
+    
+
+    ```
+
 3. **Create a Dockerfile for the Node.js application:**
 
     ```Dockerfile
@@ -1246,6 +1337,15 @@ docker run --name mysql-container --network mysqlnet -e MYSQL_ROOT_PASSWORD=root
 
     # Run the web service on container startup
     CMD [ "node", "index.js" ]
+    ```
+
+    ```bash
+    @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano dockerfile
+
+
+    Use "fg" to return to nano.
+
+    [2]+  Stopped                 nano dockerfile
     ```
 
 #### Step 4: Build and Run the Node.js Container
