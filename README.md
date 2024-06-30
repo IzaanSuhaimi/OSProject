@@ -1158,18 +1158,51 @@ c73e677f3862fda8f3a68d9845c9d9e12f9e0ffa504863dbc94af388974fe75b
 
 #### Step 3: Set Up the Node.js Container
 
-1. **Create a directory for your Node.js application and initialize it.**
+1. *Create a directory for your Node.js application and initialize it.*
 
-    ```sh
+    sh
     mkdir nodejs-app
     cd nodejs-app
     npm init -y
     npm install express mysql
-    ```
+    
+bash
+@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
+mkdir: cannot create directory ‘nodejs-app’: File exists
+@IzaanSuhaimi ➜ /workspaces/OSProject (main) $ cd nodejs-app
+@IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ npm init -y
+Wrote to /workspaces/OSProject/nodejs-app/package.json:
 
-2. **Create a file named `index.js` with the following content:**
+{
+  "name": "nodejs-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}
+@IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ npm install express mysql
 
-    ```js
+up to date, audited 77 packages in 1s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
+    
+2. **Create a file named index.js with the following content:**
+
+    js
     const express = require('express');
     const mysql = require('mysql');
 
@@ -1210,11 +1243,20 @@ c73e677f3862fda8f3a68d9845c9d9e12f9e0ffa504863dbc94af388974fe75b
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
     });
-    ```
+    
 
-3. **Create a Dockerfile for the Node.js application:**
+    bash
+        @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano index.js
 
-    ```Dockerfile
+
+    Use "fg" to return to nano.
+
+    [1]+  Stopped                 nano index.js
+    
+
+3. *Create a Dockerfile for the Node.js application:*
+
+    Dockerfile
     # Use the official Node.js image
     FROM node:14
 
@@ -1232,7 +1274,16 @@ c73e677f3862fda8f3a68d9845c9d9e12f9e0ffa504863dbc94af388974fe75b
 
     # Run the web service on container startup
     CMD [ "node", "index.js" ]
-    ```
+    
+
+    bash
+    @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano dockerfile
+
+
+    Use "fg" to return to nano.
+
+    [2]+  Stopped                 nano dockerfile
+
 
 #### Step 4: Build and Run the Node.js Container
 
