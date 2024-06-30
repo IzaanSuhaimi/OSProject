@@ -1158,15 +1158,15 @@ c73e677f3862fda8f3a68d9845c9d9e12f9e0ffa504863dbc94af388974fe75b
 
 #### Step 3: Set Up the Node.js Container
 
-1. *Create a directory for your Node.js application and initialize it.*
+1. **Create a directory for your Node.js application and initialize it.**
 
-    sh
+    ```sh
     mkdir nodejs-app
     cd nodejs-app
     npm init -y
     npm install express mysql
-    
-bash
+    ```
+```bash
 @IzaanSuhaimi ➜ /workspaces/OSProject (main) $ mkdir nodejs-app
 mkdir: cannot create directory ‘nodejs-app’: File exists
 @IzaanSuhaimi ➜ /workspaces/OSProject (main) $ cd nodejs-app
@@ -1199,10 +1199,10 @@ up to date, audited 77 packages in 1s
 
 found 0 vulnerabilities
 
-    
-2. **Create a file named index.js with the following content:**
+```
+2. **Create a file named `index.js` with the following content:**
 
-    js
+    ```js
     const express = require('express');
     const mysql = require('mysql');
 
@@ -1243,10 +1243,10 @@ found 0 vulnerabilities
     app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
     });
-    
+    ```
 
-    bash
-        @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano index.js
+    ```bash
+    @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano index.js
 
 
     Use "fg" to return to nano.
@@ -1254,9 +1254,11 @@ found 0 vulnerabilities
     [1]+  Stopped                 nano index.js
     
 
-3. *Create a Dockerfile for the Node.js application:*
+    ```
 
-    Dockerfile
+3. **Create a Dockerfile for the Node.js application:**
+
+    ```Dockerfile
     # Use the official Node.js image
     FROM node:14
 
@@ -1274,16 +1276,16 @@ found 0 vulnerabilities
 
     # Run the web service on container startup
     CMD [ "node", "index.js" ]
-    
+    ```
 
-    bash
+    ```bash
     @IzaanSuhaimi ➜ /workspaces/OSProject/nodejs-app (main) $ nano dockerfile
 
 
     Use "fg" to return to nano.
 
     [2]+  Stopped                 nano dockerfile
-
+    ```
 
 #### Step 4: Build and Run the Node.js Container
 
