@@ -1087,8 +1087,69 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)*** __Yes__.
+
+```bash
+@Irfanadib ➜ /workspaces/OSProject (main) $ docker network create bridgenet
+154d0a3f320efb2102874e817f6872a541d8da903d4978cc759cbd96bead8113
+@Irfanadib ➜ /workspaces/OSProject (main) $ docker network connect bridgenet c1
+@Irfanadib ➜ /workspaces/OSProject (main) $ docker network connect bridgenet c2
+@Irfanadib ➜ /workspaces/OSProject (main) $ docker exec c1 ping c2
+PING c2 (172.21.0.3): 56 data bytes
+64 bytes from 172.21.0.3: seq=0 ttl=64 time=0.138 ms
+64 bytes from 172.21.0.3: seq=1 ttl=64 time=0.065 ms
+64 bytes from 172.21.0.3: seq=2 ttl=64 time=0.067 ms
+64 bytes from 172.21.0.3: seq=3 ttl=64 time=0.064 ms
+64 bytes from 172.21.0.3: seq=4 ttl=64 time=0.081 ms
+64 bytes from 172.21.0.3: seq=5 ttl=64 time=0.062 ms
+64 bytes from 172.21.0.3: seq=6 ttl=64 time=0.108 ms
+64 bytes from 172.21.0.3: seq=7 ttl=64 time=0.057 ms
+64 bytes from 172.21.0.3: seq=8 ttl=64 time=0.078 ms
+64 bytes from 172.21.0.3: seq=9 ttl=64 time=0.062 ms
+64 bytes from 172.21.0.3: seq=10 ttl=64 time=0.065 ms
+64 bytes from 172.21.0.3: seq=11 ttl=64 time=0.067 ms
+64 bytes from 172.21.0.3: seq=12 ttl=64 time=0.061 ms
+64 bytes from 172.21.0.3: seq=13 ttl=64 time=0.068 ms
+64 bytes from 172.21.0.3: seq=14 ttl=64 time=0.067 ms
+64 bytes from 172.21.0.3: seq=15 ttl=64 time=0.067 ms
+64 bytes from 172.21.0.3: seq=16 ttl=64 time=0.071 ms
+64 bytes from 172.21.0.3: seq=17 ttl=64 time=0.075 ms
+64 bytes from 172.21.0.3: seq=18 ttl=64 time=0.060 ms
+64 bytes from 172.21.0.3: seq=19 ttl=64 time=0.059 ms
+64 bytes from 172.21.0.3: seq=20 ttl=64 time=0.052 ms
+64 bytes from 172.21.0.3: seq=21 ttl=64 time=0.072 ms
+64 bytes from 172.21.0.3: seq=22 ttl=64 time=0.062 ms
+64 bytes from 172.21.0.3: seq=23 ttl=64 time=0.066 ms
+64 bytes from 172.21.0.3: seq=24 ttl=64 time=0.076 ms
+64 bytes from 172.21.0.3: seq=25 ttl=64 time=0.061 ms
+64 bytes from 172.21.0.3: seq=26 ttl=64 time=0.084 ms
+64 bytes from 172.21.0.3: seq=27 ttl=64 time=0.066 ms
+64 bytes from 172.21.0.3: seq=28 ttl=64 time=0.063 ms
+64 bytes from 172.21.0.3: seq=29 ttl=64 time=0.060 ms
+64 bytes from 172.21.0.3: seq=30 ttl=64 time=0.050 ms
+64 bytes from 172.21.0.3: seq=31 ttl=64 time=0.078 ms
+64 bytes from 172.21.0.3: seq=32 ttl=64 time=0.056 ms
+64 bytes from 172.21.0.3: seq=33 ttl=64 time=0.054 ms
+64 bytes from 172.21.0.3: seq=34 ttl=64 time=0.081 ms
+64 bytes from 172.21.0.3: seq=35 ttl=64 time=0.052 ms
+64 bytes from 172.21.0.3: seq=36 ttl=64 time=0.081 ms
+64 bytes from 172.21.0.3: seq=37 ttl=64 time=0.065 ms
+64 bytes from 172.21.0.3: seq=38 ttl=64 time=0.071 ms
+64 bytes from 172.21.0.3: seq=39 ttl=64 time=0.062 ms
+64 bytes from 172.21.0.3: seq=40 ttl=64 time=0.053 ms
+64 bytes from 172.21.0.3: seq=41 ttl=64 time=0.063 ms
+64 bytes from 172.21.0.3: seq=42 ttl=64 time=0.083 ms
+64 bytes from 172.21.0.3: seq=43 ttl=64 time=0.066 ms
+64 bytes from 172.21.0.3: seq=44 ttl=64 time=0.070 ms
+64 bytes from 172.21.0.3: seq=45 ttl=64 time=0.069 ms
+64 bytes from 172.21.0.3: seq=46 ttl=64 time=0.056 ms
+64 bytes from 172.21.0.3: seq=47 ttl=64 time=0.062 ms
+64 bytes from 172.21.0.3: seq=48 ttl=64 time=0.086 ms
+64 bytes from 172.21.0.3: seq=49 ttl=64 time=0.065 ms
+64 bytes from 172.21.0.3: seq=50 ttl=64 time=0.060 ms
+```
+
+2. What is different from the previous ping in the section above? ***(1 mark)*** __The 2 networks are connected properly, making c1 unable to ping c2__.
 
 ## Intermediate Level (10 marks bonus)
 
